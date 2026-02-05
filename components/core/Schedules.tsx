@@ -1,14 +1,136 @@
 import { Button } from "@/components/ui/button";
-const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+
 const horarios = [
-    { hora: "08:00", actividades: ["Crossfit", "Musculación", "Crossfit", "Musculación", "Crossfit", "Yoga"] },
-    { hora: "09:00", actividades: ["Funcional", "", "Funcional", "", "Funcional", "Yoga"] },
-    { hora: "10:00", actividades: ["", "Boxeo", "", "Boxeo", "", ""] },
-    { hora: "18:00", actividades: ["Boxeo", "Funcional", "Boxeo", "Funcional", "Boxeo", ""] },
-    { hora: "19:00", actividades: ["Crossfit", "Zumba", "Crossfit", "Zumba", "Crossfit", ""] },
-    { hora: "20:00", actividades: ["Jiu-Jitsu", "", "Jiu-Jitsu", "", "Jiu-Jitsu", ""] },
+    {
+        "id": 1,
+        "name": "Lunes",
+        "schedules": [
+            {
+                "id": 1,
+                "trainer": "Jorge",
+                "activity": "Crossfit",
+                "end_time": "10:00",
+                "start_time": "09:00"
+            },
+            {
+                "id": 2,
+                "trainer": "Ana",
+                "activity": "Yoga",
+                "end_time": "19:00",
+                "start_time": "18:00"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Martes",
+        "schedules": [
+            {
+                "id": 3,
+                "trainer": "Pedro",
+                "activity": "Boxeo",
+                "end_time": "20:00",
+                "start_time": "19:00"
+            },
+            {
+                "id": 4,
+                "trainer": "Sofia",
+                "activity": "Funcional",
+                "end_time": "09:00",
+                "start_time": "08:00"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Miércoles",
+        "schedules": [
+            {
+                "id": 5,
+                "trainer": "Jorge",
+                "activity": "Crossfit",
+                "end_time": "10:00",
+                "start_time": "09:00"
+            },
+            {
+                "id": 6,
+                "trainer": "Carlos",
+                "activity": "Musculación",
+                "end_time": "18:00",
+                "start_time": "17:00"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Jueves",
+        "schedules": [
+            {
+                "id": 7,
+                "trainer": "Sofia",
+                "activity": "Funcional",
+                "end_time": "09:00",
+                "start_time": "08:00"
+            },
+            {
+                "id": 8,
+                "trainer": "Ana",
+                "activity": "Stretching",
+                "end_time": "20:00",
+                "start_time": "19:00"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Viernes",
+        "schedules": [
+            {
+                "id": 9,
+                "trainer": "Jorge",
+                "activity": "Crossfit Open",
+                "end_time": "19:00",
+                "start_time": "18:00"
+            },
+            {
+                "id": 10,
+                "trainer": "Ramiro",
+                "activity": "HIIT",
+                "end_time": "11:00",
+                "start_time": "10:00"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Sábado",
+        "schedules": [
+            {
+                "id": 11,
+                "trainer": "Equipo Infox",
+                "activity": "Competencia",
+                "end_time": "12:00",
+                "start_time": "10:00"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Domingo",
+        "schedules": []
+    }
 ];
+
 export default function Schedules() {
+    const timeSlots = Array.from({ length: 14 }, (_, i) => {
+        const hour = i + 8;
+        return `${hour.toString().padStart(2, '0')}:00`;
+    });
+    const getClass = (dayId: number, time: string) => {
+        const day = horarios.find(d => d.id === dayId);
+        return day?.schedules.find(s => s.start_time === time);
+    };
+ 
     return (
         <section id="schedules" className="py-24 bg-neutral-950 border-t border-neutral-900">
             <div className="max-w-7xl mx-auto px-6">
@@ -27,28 +149,34 @@ export default function Schedules() {
                             <th className="py-6 px-4 text-left font-black text-primary uppercase tracking-wider w-32">
                                 Hora
                             </th>
-                            {dias.map((dia) => (
-                                <th key={dia} className="py-6 px-4 text-left font-black text-primary uppercase tracking-wider">
-                                    {dia}
+                            {horarios.map((dia) => (
+                                <th key={dia.id} className="py-6 px-4 text-left font-black text-primary uppercase tracking-wider">
+                                    {dia.name}
                                 </th>
                             ))}
                         </tr>
                         </thead>
                         <tbody>
-                        {horarios.map((fila, index) => (
-                            <tr key={index} className="border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors">
+                        {timeSlots.map((time) => (
+                            <tr key={time} className="border-b border-zinc-800/50 hover:bg-zinc-900/30 transition-colors">
                                 <td className="py-6 px-4 font-bold text-white">
-                                    {fila.hora}
+                                    {time}
                                 </td>
-                                {fila.actividades.map((actividad, i) => (
-                                    <td key={i} className="py-4 px-4 text-zinc-400 font-medium">
-                                        {actividad ? (
-                                            <span className="text-white">{actividad}</span>
-                                        ) : (
-                                            <span className="text-zinc-800">-</span>
-                                        )}
-                                    </td>
-                                ))}
+                                {horarios.map((dia) => {
+                                    const clase = getClass(dia.id, time);
+                                    return (
+                                        <td key={`${dia.id}-${time}`} className="py-4 px-4 text-zinc-400 font-medium">
+                                            {clase ? (
+                                                <div className="flex flex-col">
+                                                    <span className="text-white font-bold uppercase">{clase.activity}</span>
+                                                    <span className="text-xs text-primary">{clase.trainer}</span>
+                                                </div>
+                                            ) : (
+                                                <span className="text-zinc-800">-</span>
+                                            )}
+                                        </td>
+                                    );
+                                })}
                             </tr>
                         ))}
                         </tbody>
