@@ -4,12 +4,10 @@ import Footer from "@/components/core/Footer";
 import Features from "@/components/core/Features";
 import Schedule from "@/components/core/Schedules";
 import Team from "@/components/core/Team";
-import Pricing from "@/components/core/Pricing";
-import Facilities from "@/components/core/Facilities";
 import { Button } from "@/components/ui/button";
 import BoxImage from "@/components/assets/box.jpg";
-
 export default function Home() {
+
     return (
         <main className="min-h-screen bg-neutral-950 w-full relative selection:bg-primary selection:text-white">
             <Navbar />
@@ -47,9 +45,6 @@ export default function Home() {
             <Features />
             <Schedule />
             <Team />
-            <Pricing />
-            <Facilities />
-
             <Footer />
         </main>
     );
