@@ -8,9 +8,9 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 const galleryImages = [
-    { src: Dumbell, alt: "Zona de Pesas" },
-    { src: Dumbell, alt: "Zona de Cardio" },
-    { src: Dumbell, alt: "Clases Grupales" },
+    { src: Dumbell, alt: "Pesas" },
+    { src: Dumbell, alt: "Cardio" },
+    { src: Dumbell, alt: "Clases" },
 ];
 export default function Facilities() {
     return (
