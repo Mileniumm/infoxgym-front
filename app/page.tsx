@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import BoxImage from "@/components/assets/box.jpg";
 export default function Home() {
 
+
     return (
         <main className="min-h-screen bg-neutral-950 w-full relative selection:bg-primary selection:text-white">
             <Navbar />
