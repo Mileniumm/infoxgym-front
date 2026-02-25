@@ -1,55 +1,43 @@
-import Image from "next/image";
-import Navbar from "@/components/core/Navbar";
-import Footer from "@/components/core/Footer";
-import Features from "@/components/core/Features"; // Importado
-import Schedule from "@/components/core/Schedules";
-import Team from "@/components/core/Team";
-import Pricing from "@/components/core/Pricing";
-import Facilities from "@/components/core/Facilities"; // Importado
 import { Button } from "@/components/ui/button";
-import BoxImage from "@/components/assets/box.jpg";
-
-export default function Home() {
+import Link from "next/link";
+export default function AdminLogin() {
     return (
-        <main className="min-h-screen bg-neutral-950 w-full relative selection:bg-primary selection:text-white">
-            <Navbar />
-            <section id="inicio" className="relative w-full h-screen overflow-hidden bg-neutral-950">
-                <div className="absolute inset-0 w-full h-full">
-                    <Image
-                        src={BoxImage}
-                        alt="Boxeador In Fox Gym"
-                        fill
-                        className="object-cover object-[center_top] md:object-right"
-                        priority
-                        quality={90}
-                    />
-                    <div className="absolute inset-0 bg-black/60 md:hidden" />
+        <main className="min-h-screen bg-neutral-950 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+            <div className="absolute top-[-10%] left-[-10%] w-75 h-75 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-100 h-100 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="w-full max-w-sm space-y-8 z-10">
+                <div className="text-center">
+                    <h1 className="text-white text-6xl font-black uppercase tracking-tighter italic leading-none">
+                        ADMIN
+                    </h1>
                 </div>
-                <div className="hidden md:block absolute top-0 -left-[40%] w-[80%] lg:w-[75%] h-full bg-neutral-950/85 backdrop-blur-[2px] transform skew-x-[25deg] origin-top-left border-r-[15px] border-primary/90 z-10" />
-                <div className="relative z-20 h-full w-full px-10 md:px-20 lg:px-32 flex flex-col justify-center pt-20">
-                    <div className="max-w-sm md:max-w-md space-y-6">
-                        <span className="text-primary font-bold tracking-widest uppercase text-sm md:text-base block">
-                            Fitness & More
-                        </span>
-                        <h1 className="flex flex-col gap-0 font-black text-white uppercase italic tracking-tighter drop-shadow-xl text-4xl md:text-6xl lg:text-7xl leading-tight">
-                            <span>Entrenar es</span>
-                            <span className="text-white">mejor</span>
-                            <span>acompañado</span>
-                        </h1>
-                        <div className="pt-2">
-                            <Button className="bg-primary hover:bg-orange-600 text-white font-bold tracking-wider text-sm rounded-full px-10 py-6 h-auto shadow-lg shadow-orange-500/20 transition-all hover:scale-105">
-                                Apuntate
-                            </Button>
-                        </div>
+                <div className="mt-8 space-y-4">
+                    <div className="space-y-3">
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            className="w-full px-6 py-3 bg-neutral-900/60 border border-neutral-800 rounded-full text-white text-base placeholder:text-neutral-600 focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all backdrop-blur-md"
+                        />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            className="w-full px-6 py-3 bg-neutral-900/60 border border-neutral-800 rounded-full text-white text-base placeholder:text-neutral-600 focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all backdrop-blur-md"
+                        />
+                    </div>
+
+                    <div className="pt-4 flex justify-center">
+                        <Button
+                            asChild
+                            className="bg-primary hover:bg-orange-600 text-neutral-950 font-black tracking-widest uppercase text-lg px-12 py-6 h-auto rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(255,107,53,0.3)]"
+                        >
+                            <Link href="/admin/horarios">
+                                Enviar
+                            </Link>
+                        </Button>
                     </div>
                 </div>
-            </section>
-            <Features />
-            <Schedule />
-            <Team />
-            <Pricing />
-            <Facilities />
-            <Footer />
+            </div>
         </main>
     );
 }

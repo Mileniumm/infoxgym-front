@@ -1,16 +1,16 @@
-import {Send, MessageCircle } from "lucide-react";
-
+import { Send, MessageCircle } from "lucide-react";
 export default function Footer() {
     return (
         <footer className="bg-neutral-950 border-t border-zinc-900 pt-16 pb-8 text-zinc-400">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
-                    <div className="space-y-6">
+
+                    <div className="space-y-6 text-left flex flex-col items-start">
                         <div className="text-2xl font-black tracking-tighter">
                             <span className="text-white">IN</span>
                             <span className="text-primary">FOX</span>
                         </div>
-                        <p className="text-sm leading-relaxed text-zinc-400 pr-4">
+                        <p className="text-sm leading-relaxed text-zinc-400 md:pr-4">
                             Un espacio o establecimiento equipado para la práctica de deportes, ejercicios físicos y actividades de fitness, con aparatos y máquinas.
                         </p>
                         <div className="flex gap-4 pt-2">
@@ -19,7 +19,7 @@ export default function Footer() {
                             </a>
                         </div>
                     </div>
-                    <div>
+                    <div className="hidden md:block">
                         <h3 className="text-white font-bold uppercase mb-6 inline-block border-b-2 border-primary pb-1 text-sm tracking-wider">
                             Enlaces
                         </h3>
@@ -30,22 +30,22 @@ export default function Footer() {
                             <li><a href="#sales" className="hover:text-primary transition-colors">Tarifas</a></li>
                         </ul>
                     </div>
-                    <div>
+                    <div className="hidden md:flex text-left flex-col items-start">
                         <h3 className="text-white font-bold uppercase mb-6 inline-block border-b-2 border-primary pb-1 text-sm tracking-wider">
                             Contactanos
                         </h3>
 
-                        <ul className="space-y-4 text-sm mb-8">
+                        <ul className="space-y-4 text-sm mb-8 flex flex-col items-start">
                             <li className="flex flex-col gap-1">
                                 <span className="text-zinc-500">Telefono:</span>
                                 <span className="text-zinc-300">(+54) 351 6469650</span>
                             </li>
                             <li className="flex flex-col gap-1">
                                 <span className="text-zinc-500">Direccion:</span>
-                                <span className="text-zinc-300">Soconcho 3865 Barrio Jardín horizonte</span>
+                                <span className="text-zinc-300">Soconcho 3865 Barrio Jardín Horizonte</span>
                             </li>
                         </ul>
-                        <div className="relative max-w-xs">
+                        <div className="relative w-full max-w-xs">
                             <input
                                 type="email"
                                 placeholder="Email"

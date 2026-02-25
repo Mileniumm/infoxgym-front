@@ -7,14 +7,16 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+
 const galleryImages = [
     { src: Dumbell, alt: "Pesas" },
     { src: Dumbell, alt: "Cardio" },
     { src: Dumbell, alt: "Clases" },
 ];
+
 export default function Facilities() {
     return (
-        <section id="facilities" className="relative py-24 bg-neutral-950 overflow-hidden">
+        <section id="facilities" className="hidden md:block relative py-24 bg-neutral-950 overflow-hidden">
             <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-125 h-125 rounded-full border-50 border-primary pointer-events-none opacity-100 z-0 -rotate-12 skew-y-12" />
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
@@ -35,7 +37,7 @@ export default function Facilities() {
                                 <CarouselContent className="ml-0">
                                     {galleryImages.map((img, index) => (
                                         <CarouselItem key={index} className="pl-0 basis-full">
-                                            <div className="relative w-full aspect-4/3">
+                                            <div className="relative w-full aspect-[4/3]">
                                                 <Image
                                                     src={img.src}
                                                     alt={img.alt}
@@ -57,9 +59,9 @@ export default function Facilities() {
                         <h3 className="text-white font-bold uppercase tracking-wider mb-4 text-lg">
                             UBICACIÓN
                         </h3>
-                        <div className="aspect-4/3 w-full bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden relative shadow-2xl group">
+                        <div className="aspect-[4/3] w-full bg-zinc-900 rounded-xl border border-zinc-800 overflow-hidden relative shadow-2xl group">
                             <iframe
-                                src="https://maps.google.com/maps?q=Soconcho+3865,+Barrio+Jardín+Horizonte,+Córdoba&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                src="https://maps.google.com/maps?q=Soconcho%203865,%20Córdoba&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}

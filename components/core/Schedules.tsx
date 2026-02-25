@@ -141,6 +141,9 @@ export default function Schedules() {
                     <h2 className="text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter">
                         Horario de Clases
                     </h2>
+                    <p className="md:hidden text-zinc-500 text-xs mt-4 animate-pulse">
+                        ← Desliza la tabla para ver todos los días →
+                    </p>
                 </div>
                 <div className="w-full overflow-x-auto pb-4">
                     <table className="w-full min-w-200 border-collapse text-sm">
