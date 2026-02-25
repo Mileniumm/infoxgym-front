@@ -56,7 +56,6 @@ export default function Team() {
                                 {member.name}
                             </h3>
 
-                            {/* Acá agregué el rol para que se vea en pantalla */}
                             <span className="text-primary font-bold text-sm tracking-wider uppercase mb-2">
                                 {member.role}
                             </span>

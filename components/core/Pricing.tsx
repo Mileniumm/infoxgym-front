@@ -48,7 +48,6 @@ export default function Pricing() {
                         TARIFAS
                     </h2>
                 </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {planes.map((plan, index) => (
                         <Card
@@ -94,7 +93,6 @@ export default function Pricing() {
                         </Card>
                     ))}
                 </div>
-
             </div>
         </section>
     );
