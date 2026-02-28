@@ -72,8 +72,6 @@ export default function AdminHorarios() {
                     </button>
                 ))}
             </div>
-
-            {/* Tabla con fondo negro puro */}
             <div className="rounded-xl border border-zinc-800 overflow-hidden bg-black">
                 <Table>
                     <TableHeader className="bg-zinc-950">

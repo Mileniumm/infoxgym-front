@@ -25,7 +25,6 @@ export default function AdminLogin() {
                             className="w-full px-6 py-3 bg-neutral-900/60 border border-neutral-800 rounded-full text-white text-base placeholder:text-neutral-600 focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all backdrop-blur-md"
                         />
                     </div>
-
                     <div className="pt-4 flex justify-center">
                         <Button
                             asChild
