@@ -1,16 +1,14 @@
 import Image from "next/image";
-import Navbar from "@/components/core/Navbar";
-import Footer from "@/components/core/Footer";
-import Features from "@/components/core/Features";
-import Schedule from "@/components/core/Schedules";
-import Team from "@/components/core/Team";
-import Pricing from "@/components/core/Pricing";
-import Facilities from "@/components/core/Facilities";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import Features from "@/components/home/Features";
+import Schedule from "@/components/home/Schedules";
+import Team from "@/components/home/Team";
+import Pricing from "@/components/home/Pricing";
+import Facilities from "@/components/home/Facilities";
 import { Button } from "@/components/ui/button";
 import BoxImage from "@/components/assets/box.jpg";
 export default function Home() {
-
-
     return (
         <main className="min-h-screen bg-neutral-950 w-full relative selection:bg-primary selection:text-white">
             <Navbar />
